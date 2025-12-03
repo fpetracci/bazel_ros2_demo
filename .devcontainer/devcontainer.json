@@ -1,0 +1,35 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/cpp
+{
+    "name": "FraDev",
+    "build": {
+        "dockerfile": "./Dockerfile"
+    },
+    "features": {
+        "ghcr.io/balazs23/devcontainers-features/bazel:1": {},
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    },
+    "initializeCommand": "mkdir -p ${localEnv:HOME}/.cache && chmod 777 ${localEnv:HOME}/.cache",
+    "mounts": [
+        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.cache,target=/home/vscode/.cache,type=bind"
+    ],
+    "containerEnv": {
+        "DISPLAY": "${localEnv:DISPLAY}",
+    },
+    "runArgs": [
+        "--network=host",
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "llvm-vs-code-extensions.vscode-clangd",
+                "BazelBuild.vscode-bazel",
+                "akiramiyakoda.cppincludeguard",
+                "ms-python.black-formatter",
+            ]
+        }
+    },
+    "postCreateCommand": "/home/vscode/scripts/bootstrap.sh ${containerWorkspaceFolder}",
+    "postStartCommand": "sudo chown -R vscode /workspaces && direnv allow .envrc",
+}

@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage{amsmath}     % for mathematical formulas
+
+\usepackage{xcolor}      % for color in code
+\usepackage{listings}    % for code snippets
+
+
+
+\begin{document}
+
+\title{Notes on ROS2 with Bazel}
+\author{Francesco Petracci}
+\date{3 December 2025}
+\maketitle
+
+\section{Why?}
+Why ROS2 and why Bazel? I like containers.
+
+\section{Setting up DevContainer}
+
+\section{Bazel}
+
+\section{ROS2}
+
+\section{CPP State}
+\begin{lstlisting}[language=C++]
+#include "controller.h"
+
+std::pair<double, double> Controller::calculateControlCommands(const std::vector<std::pair<double, double>>& trajectory) {
+	// Dummy implementation: constant steering and acceleration
+	return {0.5, 1.0}; // steering angle, acceleration
+}
+\end{lstlisting}
+
+
+
+\section{Python Plot}
+\begin{lstlisting}[language=Python]
+def calculate_energy(mass):
+c = 299792458  # Speed of light in meters per second
+energy = mass * c**2
+return energy
+\end{lstlisting}
+
+
+
+
+\end{document}
