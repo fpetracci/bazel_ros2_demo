@@ -1,3 +1,42 @@
+"""
+this makes bazel linter happy
+"""
+
 module(
     name = "demo_ros2",
+)
+
+## rules python
+
+bazel_dep(name = "rules_python", version = "1.4.1")
+
+python = use_extension("@rules_python//python/extensions:python.bzl", "python")
+python.toolchain(
+    is_default = True,
+    python_version = "3.13.0",
+)
+
+## rules cpp
+
+bazel_dep(name = "rules_cc", version = "0.1.2")
+
+## rules ros2
+
+bazel_dep(name = "com_github_mvukov_rules_ros2", version = "0.0.0-20250612-f0d04fe")
+rules_ros2_non_module_deps = use_extension("@com_github_mvukov_rules_ros2//ros2:extensions.bzl", "non_module_deps")
+use_repo(
+    rules_ros2_non_module_deps,
+    # Check the rules_ros2 root MODULE.bazel for a full list of available non-module repos
+    # Required for bazel test:
+    "ros2_common_interfaces",
+    "ros2_launch",
+    "ros2_launch_ros",
+    "ros2_rcl_interfaces",
+    "ros2_rclcpp",
+    # Required for bazel run:
+    "ros2_rclpy",
+    "ros2_rosidl",
+    # Optional:
+    "ros2_rosbag2",
+    "ros2cli",
 )

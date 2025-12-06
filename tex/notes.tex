@@ -14,11 +14,40 @@
 \maketitle
 
 \section{Why?}
-Why ROS2 and why Bazel? I like containers.
+Why ROS2 and why Bazel? I like containers, and I have many PC. I don't want to mess between Ubuntu and Fedora settings.
+
 
 \section{Setting up DevContainer}
 
+\subsection{Install devcontainer CLI and build devcontainer}
+Install docker
+https://docs.docker.com/desktop/setup/install/linux/
+
+and manage postinstallation:
+https://docs.docker.com/engine/install/linux-postinstall/
+
+Install VSCode and the Remote - Containers extension. Create a .devcontainer folder with a Dockerfile and devcontainer.json.
+F1 and open folder as containers
+if devcontainer is not installed, it will prompt you to install it
+otherwise F1 and select "Dev Containers: Install devcontainer CLI"
+
+add to PATH by 
+	export PATH="\$PATH:"
+
+check here: https://code.visualstudio.com/docs/devcontainers/devcontainer-cli
+
+finally Run "Dev Containers: Open Folder in container"
+
+\subsection{$devcontainer.json$ info}
+blabla
+
+\subsection{$Dockerfile$}
+blabla
+
 \section{Bazel}
+
+repository MODULE.Bazel
+
 
 \section{ROS2}
 

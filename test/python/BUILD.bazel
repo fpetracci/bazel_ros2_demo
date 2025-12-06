@@ -1,0 +1,6 @@
+py_binary(    
+    name = "pyhello",
+    srcs = ["hello.py"],
+    main = "hello.py",
+    )
+
