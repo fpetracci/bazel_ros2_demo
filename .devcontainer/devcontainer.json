@@ -31,5 +31,5 @@
         }
     },
     "postCreateCommand": "/home/vscode/scripts/bootstrap.sh ${containerWorkspaceFolder}",
-    "postStartCommand": "sudo chown -R vscode /workspaces && direnv allow .envrc",
+    "postStartCommand": "sudo chown -R vscode /workspaces" // && direnv allow .envrc",
 }

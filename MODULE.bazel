@@ -19,6 +19,13 @@ python.toolchain(
 ## rules cpp
 
 bazel_dep(name = "rules_cc", version = "0.1.2")
+pip_requirements = use_extension("@rules_python//python/extensions:pip.bzl", "pip")
+pip_requirements.parse(
+    hub_name = "pip_requirements",
+    python_version = "3.13.0",
+    requirements_lock = "//tools:requirements.txt",
+)
+use_repo(pip_requirements, "pip_requirements")
 
 ## rules ros2
 
@@ -39,4 +46,41 @@ use_repo(
     # Optional:
     "ros2_rosbag2",
     "ros2cli",
+    ### ALL AVAILABLE ###
+    # "cyclonedds",
+    "foxglove_bridge",
+    # "iceoryx",
+    # "osrf_pycommon",
+    # "ros2",
+    # "ros2_ament_index",
+    # "ros2_class_loader",
+    # "ros2_diagnostics",
+    # "ros2_geometry2",
+    # "ros2_image_common",
+    # "ros2_kdl_parser",
+    # "ros2_keyboard_handler",
+    # "ros2_libstatistics_collector",
+    # "ros2_message_filters",
+    # "ros2_pluginlib",
+    # "ros2_rcl",
+    # "ros2_rcl_logging",
+    # "ros2_rcpputils",
+    # "ros2_rcutils",
+    # "ros2_resource_retriever",
+    # "ros2_rmw",
+    # "ros2_rmw_cyclonedds",
+    # "ros2_rmw_dds_common",
+    # "ros2_rmw_implementation",
+    # "ros2_robot_state_publisher",
+    # # "ros2_rosidl",
+    # "ros2_rosidl_python",
+    # "ros2_rosidl_runtime_py",
+    # "ros2_rosidl_typesupport",
+    # "ros2_rpyutils",
+    # "ros2_tracing",
+    # "ros2_unique_identifier_msgs",
+    # "ros2_urdfdom",
+    # "ros2_urdfdom_headers",
+    # "ros2_xacro",
+    # "rules_ros2_config_clang",
 )
