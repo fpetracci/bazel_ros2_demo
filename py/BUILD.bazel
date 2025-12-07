@@ -6,7 +6,8 @@ py_binary(
     srcs = ["listener.py"],
     visibility = ["//visibility:public"],
     deps = [
-        "@ros2_common_interfaces//:py_std_msgs",
+        #"@ros2_common_interfaces//:py_std_msgs",
+        "//messages:py_car_msgs",
         "@ros2_rclpy//:rclpy",
         requirement("numpy"),
     ],

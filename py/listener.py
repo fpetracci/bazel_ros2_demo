@@ -2,7 +2,9 @@
 
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import Float32
+
+# from std_msgs.msg import Float32
+from car_msgs.msg import CarState
 
 
 class PyListener(Node):
@@ -10,11 +12,15 @@ class PyListener(Node):
         super().__init__("py_listener")
 
         self.pose_sub = self.create_subscription(
-            Float32, "car_pose", self.pose_callback, 10
+            # Float32, "car_pose", self.pose_callback, 10
+            CarState,
+            "car_pose",
+            self.pose_callback,
+            10,
         )
 
     def pose_callback(self, msg):
-        self.get_logger().info(f"Received x: {msg.data}")
+        self.get_logger().info(f"x: {msg.x} \ny: {msg.y}")
 
 
 def main(args=None):

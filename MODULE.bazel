@@ -33,7 +33,6 @@ bazel_dep(name = "com_github_mvukov_rules_ros2", version = "0.0.0-20250612-f0d04
 rules_ros2_non_module_deps = use_extension("@com_github_mvukov_rules_ros2//ros2:extensions.bzl", "non_module_deps")
 use_repo(
     rules_ros2_non_module_deps,
-    # Check the rules_ros2 root MODULE.bazel for a full list of available non-module repos
     # Required for bazel test:
     "ros2_common_interfaces",
     "ros2_launch",

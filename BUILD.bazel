@@ -8,6 +8,7 @@ ros2_launch(
         #"@ros2_common_interfaces//:geometry_msgs",
         "@ros2_common_interfaces//:std_msgs",
         #"@ros2_geometry2//:tf2_msgs",
+        "//messages:car_msgs",
     ],
     launch_file = "launch_all.py",
     nodes = [
